@@ -8,7 +8,7 @@ An implementation of the Datadog statsd APIs for Twisted.
 Installation
 ------------
 
-As usual, with pip::
+As usual, with pip:
 
 .. code-block:: sh
 
