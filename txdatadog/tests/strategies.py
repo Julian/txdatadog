@@ -19,13 +19,19 @@ metric_without_value = strategies.one_of(
     ]
 )
 tag = strategies.tuples(
-    strategies.text().map(lambda name: name.encode("utf-8")),
-    strategies.text().map(lambda value: value.encode("utf-8")),
+    strategies.text(string.ascii_letters + string.digits + ".").map(
+        lambda name: name.encode("utf-8"),
+    ),
+    strategies.text(string.ascii_letters + string.digits + ".").map(
+        lambda name: name.encode("utf-8"),
+    ),
 )
+value = strategies.integers()
 
 
 @strategies.composite
 def metric(draw):
-    value = draw(strategies.floats())
     tags = draw(strategies.sets(tag))
-    return draw(metric_without_value).with_value(value=value).with_tags(*tags)
+    return draw(metric_without_value).with_value(
+        value=draw(value),
+    ).with_tags(*tags)
