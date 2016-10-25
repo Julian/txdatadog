@@ -26,7 +26,7 @@ tag = strategies.tuples(
         lambda name: name.encode("utf-8"),
     ),
 )
-value = strategies.integers()
+value = strategies.floats(allow_nan=False, allow_infinity=False)
 
 
 @strategies.composite

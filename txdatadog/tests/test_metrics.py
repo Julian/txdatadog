@@ -60,7 +60,11 @@ class TestMetric(TestCase):
         )
 
     def test_set(self):
-        set = metrics.Set(name="users.uniques").with_value(value="1234")
+        # FIXME: I can't tell if this can be a string. If it can, this gets a
+        #        bit more complicated (because of str(float) being stupid).
+        #        The DD docs say that `value` is a number, but this kind of
+        #        metric seems kind of useless unless it takes a str.
+        set = metrics.Set(name="users.uniques").with_value(value=1234)
         self.assertEqual(bytes(set), b"users.uniques:1234|s")
 
     def test_set_with_tags(self):

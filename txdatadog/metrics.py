@@ -48,12 +48,12 @@ class _ValuedMetric(object):
     @calculated_once
     def _bytes(self):
         if self.tags:
-            return "{self.name}:{self.value}|{self._type}|#{tags}".format(
+            return "{self.name}:{self.value!r}|{self._type}|#{tags}".format(
                 self=self, tags=",".join(
                     "{0}:{1}".format(name, tag) for name, tag in self.tags,
                 ),
             )
-        return "{self.name}:{self.value}|{self._type}".format(self=self)
+        return "{self.name}:{self.value!r}|{self._type}".format(self=self)
 
     def with_tags(self, *tags):
         return attr.assoc(self, tags=self.tags.extend(tags))
