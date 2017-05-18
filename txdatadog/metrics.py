@@ -10,7 +10,7 @@ class NoValueSpecified(Exception):
     """
 
 
-@attr.s
+@attr.s(hash=True)
 class _Metric(object):
 
     name = attr.ib()
@@ -34,7 +34,7 @@ class _Metric(object):
         )
 
 
-@attr.s
+@attr.s(hash=True)
 class _ValuedMetric(object):
 
     name = attr.ib()

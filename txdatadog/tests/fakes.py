@@ -30,7 +30,7 @@ class _ConnectableFakeDatagramTransport(FakeDatagramTransport):
         self.connected = True
 
 
-@attr.s
+@attr.s(hash=True)
 class Server(object):
     """
     A DogStatsD server.

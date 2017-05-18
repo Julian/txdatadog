@@ -5,7 +5,7 @@ from twisted.internet.protocol import DatagramProtocol
 import attr
 
 
-@attr.s
+@attr.s(hash=True)
 class DogStatxD(DatagramProtocol, object):
 
     host = attr.ib(default="127.0.0.1")
