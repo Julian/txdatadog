@@ -26,7 +26,12 @@ setup(
     author_email="Julian@GrayVines.com",
     packages=find_packages(),
     setup_requires=["vcversioner>=2.16.0.0"],
-    install_requires=["attrs", "cached_property", "pyrsistent", "twisted"],
+    install_requires=[
+        "attrs>=17.1.0",
+        "cached_property",
+        "pyrsistent",
+        "twisted",
+    ],
     vcversioner={"version_module_paths": ["txdatadog/_version.py"]},
     classifiers=classifiers,
 )
