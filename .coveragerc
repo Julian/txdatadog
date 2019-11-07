@@ -2,3 +2,4 @@
 [run]
 branch = True
 source = txdatadog
+dynamic_context = test_function
