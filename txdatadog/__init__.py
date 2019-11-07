@@ -1,1 +1,2 @@
-from txdatadog._version import __version__
+import importlib_metadata
+__version__ = importlib_metadata.version(__name__)
